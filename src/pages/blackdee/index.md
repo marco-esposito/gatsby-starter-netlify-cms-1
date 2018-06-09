@@ -1,5 +1,6 @@
 ---
 templateKey: blackdee-page
+path: /blackdee
 title: Blackdee
 about_us:
   description: >-
@@ -57,4 +58,3 @@ clients:
   - image: /img/jumbotron.jpg
   - image: /img/products-grid2.jpg
 ---
-
