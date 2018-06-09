@@ -1,7 +1,6 @@
 ---
-templateKey: 'blackdee-page'
-path: /products-bis
-title: Our Coffee
+templateKey: blackdee-page
+title: Blackdee
 image: /img/jumbotron.jpg
 heading: What we offer
 description: >-
@@ -99,3 +98,4 @@ pricing:
       plan: Custom
       price: '??'
 ---
+
