@@ -1,101 +1,102 @@
 ---
 templateKey: blackdee-page
 title: Blackdee
-image: /img/jumbotron.jpg
-heading: What we offer
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
-intro:
-  blurbs:
-    - image: /img/coffee.png
-      text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
-    - image: /img/coffee-gear.png
-      text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
-    - image: /img/tutorials.png
-      text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
-    - image: /img/meeting-space.png
-      text: >
-        We believe that good coffee has the power to bring people together.
-        That’s why we decided to turn a corner of our shop into a cozy meeting
-        space where you can hang out with fellow coffee lovers and learn about
-        coffee making techniques. All of the artwork on display there is for
-        sale. The full price you pay goes to the artist.
-  heading: What we offer
-  description: >
-    Kaldi is the ultimate spot for coffee lovers who want to learn about their
-    java’s origin and support the farmers that grew it. We take coffee
-    production, roasting and brewing seriously and we’re glad to pass that
-    knowledge to anyone. This is an edit via identity...
-main:
-  heading: Great coffee with no compromises
-  description: >
-    We hold our coffee to the highest standards from the shrub to the cup.
-    That’s why we’re meticulous and transparent about each step of the coffee’s
-    journey. We personally visit each farm to make sure the conditions are
-    optimal for the plants, farmers and the local environment.
-  image1:
-    alt: A close-up of a paper filter filled with ground coffee
-    image: /img/products-grid3.jpg
-  image2:
-    alt: A green cup of a coffee on a wooden table
-    image: /img/products-grid2.jpg
-  image3:
-    alt: Coffee beans
-    image: /img/products-grid1.jpg
-testimonials:
-  - author: Elisabeth Kaurismäki
-    quote: >-
-      The first time I tried Kaldi’s coffee, I couldn’t even believe that was
-      the same thing I’ve been drinking every morning.
-  - author: Philipp Trommler
-    quote: >-
-      Kaldi is the place to go if you want the best quality coffee. I love their
-      stance on empowering farmers and transparency.
-full_image: /img/products-full-width.jpg
-pricing:
-  heading: Monthly subscriptions
+about_us:
   description: >-
-    We make it easy to make great coffee a part of your life. Choose one of our
-    monthly subscription plans to receive great coffee at your doorstep each
-    month. Contact us about more details and payment info.
-  plans:
-    - description: Perfect for the drinker who likes to enjoy 1-2 cups per day.
-      items:
-        - 3 lbs of coffee per month
-        - Green or roasted beans"
-        - One or two varieties of beans"
-      plan: Small
-      price: '50'
-    - description: 'Great for avid drinkers, java-loving couples and bigger crowds'
-      items:
-        - 6 lbs of coffee per month
-        - Green or roasted beans
-        - Up to 4 different varieties of beans
-      plan: Big
-      price: '80'
-    - description: Want a few tiny batches from different varieties? Try our custom plan
-      items:
-        - Whatever you need
-        - Green or roasted beans
-        - Unlimited varieties
-      plan: Custom
-      price: '??'
+    Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper
+    bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum
+    vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor.
+    Etiam at condimentum nisl, vitae sagittis orci. Donec id dignissim nunc.
+    Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat
+    orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et
+    vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus.
+    Cras lobortis molestie faucibus.
+  heading: Who we are
+services:
+  description: >-
+    Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper
+    bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum
+    vitae ligula vel ornare.
+  heading: Services
+  service1:
+    description: >-
+
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate. Etiam elit elit, elementum sed varius at,
+      adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
+      ultricies sapien. Pellentesque orci lectus, consectetur vel posuere
+      posuere, rutrum eu ipsum. Aliquam eget odio sed ligula iaculis consequat
+      at eget orci. Mauris molestie sit amet metus mattis varius. Donec sit amet
+      ligula eget nisi sodales egestas. Aliquam interdum dolor aliquet dolor
+      sollicitudin fermentum. Donec congue lorem a molestie bibendum. Etiam nisi
+      ante, consectetur eget placerat a, tempus a neque. Donec ut elit urna.
+      Etiam venenatis eleifend urna eget scelerisque. Aliquam in nunc quis dui
+      sollicitudin ornare ac vitae lectus.
+    heading: Strategic Design
+    image: /img/products-grid3.jpg
+    intro: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate.
+  service2:
+    description: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate. Etiam elit elit, elementum sed varius at,
+      adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
+      ultricies sapien. Pellentesque orci lectus, consectetur vel posuere
+      posuere, rutrum eu ipsum. Aliquam eget odio sed ligula iaculis consequat
+      at eget orci. Mauris molestie sit amet metus mattis varius. Donec sit amet
+      ligula eget nisi sodales egestas. Aliquam interdum dolor aliquet dolor
+      sollicitudin fermentum. Donec congue lorem a molestie bibendum. Etiam nisi
+      ante, consectetur eget placerat a, tempus a neque. Donec ut elit urna.
+      Etiam venenatis eleifend urna eget scelerisque. Aliquam in nunc quis dui
+      sollicitudin ornare ac vitae lectus.
+    heading: Service Design
+    image: /img/products-full-width.jpg
+    intro: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate.
+  service3:
+    description: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate. Etiam elit elit, elementum sed varius at,
+      adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
+      ultricies sapien. Pellentesque orci lectus, consectetur vel posuere
+      posuere, rutrum eu ipsum. Aliquam eget odio sed ligula iaculis consequat
+      at eget orci. Mauris molestie sit amet metus mattis varius. Donec sit amet
+      ligula eget nisi sodales egestas. Aliquam interdum dolor aliquet dolor
+      sollicitudin fermentum. Donec congue lorem a molestie bibendum. Etiam nisi
+      ante, consectetur eget placerat a, tempus a neque. Donec ut elit urna.
+      Etiam venenatis eleifend urna eget scelerisque. Aliquam in nunc quis dui
+      sollicitudin ornare ac vitae lectus.
+    heading: Service Design
+    image: /img/flavor_wheel.jpg
+    intro: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate.
+  service4:
+    description: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate. Etiam elit elit, elementum sed varius at,
+      adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
+      ultricies sapien. Pellentesque orci lectus, consectetur vel posuere
+      posuere, rutrum eu ipsum. Aliquam eget odio sed ligula iaculis consequat
+      at eget orci. Mauris molestie sit amet metus mattis varius. Donec sit amet
+      ligula eget nisi sodales egestas. Aliquam interdum dolor aliquet dolor
+      sollicitudin fermentum. Donec congue lorem a molestie bibendum. Etiam nisi
+      ante, consectetur eget placerat a, tempus a neque. Donec ut elit urna.
+      Etiam venenatis eleifend urna eget scelerisque. Aliquam in nunc quis dui
+      sollicitudin ornare ac vitae lectus.
+    heading: Service Design
+    image: /img/sample-pic-sony-w570-1.jpg
+    intro: >-
+      Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
+      libero posuere vulputate.
+clients:
+  image1: /img/chemex.jpg
+  image2: /img/flavor_wheel.jpg
+  image3: /img/jumbotron.jpg
+  image4: /img/jumbotron.jpg
+  image5: /img/products-grid2.jpg
+  image6: /img/products-grid3.jpg
 ---
 
