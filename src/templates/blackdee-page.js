@@ -75,7 +75,7 @@ export const blackdeePageQuery = graphql`
           items {
             heading
             intro
-            name
+            description
             image
           }
         }
