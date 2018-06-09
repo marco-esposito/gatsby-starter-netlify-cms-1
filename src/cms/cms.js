@@ -7,6 +7,6 @@ import BlackdeePagePreview from './preview-templates/BlackdeePagePreview'
 
 CMS.registerPreviewStyle('/styles.css')
 CMS.registerPreviewTemplate('about', AboutPagePreview)
-// CMS.registerPreviewTemplate('products', ProductPagePreview)
-// CMS.registerPreviewTemplate('blackdee', BlackdeePagePreview)
+CMS.registerPreviewTemplate('products', ProductPagePreview)
+CMS.registerPreviewTemplate('blackdee', BlackdeePagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
