@@ -5,9 +5,8 @@ import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 
 export const BlackdeePageTemplate = ({
-  image,
   title,
-  heading,
+  aboutUs,
   description,
   intro,
   main,
@@ -106,9 +105,14 @@ export const BlackdeePageTemplate = ({
 )
 
 BlackdeePageTemplate.propTypes = {
-  image: PropTypes.string,
   title: PropTypes.string,
-  heading: PropTypes.string,
+  aboutUs: PropTypes.shape({
+    heading: PropTypes.string,
+    description: PropTypes.text,
+  })
+
+
+
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
@@ -130,6 +134,7 @@ BlackdeePageTemplate.propTypes = {
 }
 
 const BlackdeePage = ({ data }) => {
+  console.log('***********', data);
   const { frontmatter } = data.markdownRemark
 
   return (
@@ -162,47 +167,45 @@ export const blackdeePageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        image
-        heading
-        description
-        intro {
-          blurbs {
-            image
-            text
-          }
+        about_us {
           heading
           description
         }
-        main {
+        services {
           heading
           description
-          image1 {
-            alt
+          service1 {
+            heading
+            intro
+            name
             image
           }
-          image2 {
-            alt
+          service2 {
+            heading
+            intro
+            name
             image
           }
-          image3 {
-            alt
+          service3 {
+            heading
+            intro
+            name
+            image
+          }
+          service4 {
+            heading
+            intro
+            name
             image
           }
         }
-        testimonials {
-          author
-          quote
-        }
-        full_image
-        pricing {
-          heading
-          description
-          plans {
-            description
-            items
-            plan
-            price
-          }
+        clients {
+          image1
+          image2
+          image3
+          image4
+          image5
+          image6
         }
       }
     }

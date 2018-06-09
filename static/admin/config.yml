@@ -56,36 +56,13 @@ collections:
           - {label: Services, name: services, widget: object, fields: [
               {label: Heading, name: heading, widget: string},
               {label: Description, name: description, widget: text},
-              {label: Service1, name: service1, widget: object, fields: [
-                {label: Heading, name: heading, widget: string},
-                {label: Intro, name: intro, widget: text},
-                {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image},
-              ]},
-              {label: Service2, name: service2, widget: object, fields: [
-                {label: Heading, name: heading, widget: string},
-                {label: Intro, name: intro, widget: text},
-                {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image},
-              ]},
-              {label: Service3, name: service3, widget: object, fields: [
-                {label: Heading, name: heading, widget: string},
-                {label: Intro, name: intro, widget: text},
-                {label: Description, name: description, widget: text},
-                {label: Image, name: image, widget: image},
-              ]},
-              {label: Service4, name: service4, widget: object, fields: [
+              {label: Items, name: items, widget: list, fields: [
                 {label: Heading, name: heading, widget: string},
                 {label: Intro, name: intro, widget: text},
                 {label: Description, name: description, widget: text},
                 {label: Image, name: image, widget: image},
               ]},
             ]}
-          - {label: Clients, name: clients, widget: object, fields: [
-              {label: Image1, name: image1, widget: image},
-              {label: Image2, name: image2, widget: image},
-              {label: Image3, name: image3, widget: image},
-              {label: Image4, name: image4, widget: image},
-              {label: Image5, name: image5, widget: image},
-              {label: Image6, name: image6, widget: image},
+          - {label: Clients, name: clients, widget: list, fields: [
+              {label: Image, name: image, widget: image},
             ]}
