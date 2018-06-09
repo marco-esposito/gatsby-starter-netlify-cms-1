@@ -1,6 +1,6 @@
 ---
 templateKey: blackdee-page
-title: Blackdee-
+title: Blackdee
 about_us:
   description: >-
     Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper
