@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BlackdeePageTemplate } from '../../templates/product-page'
+import { BlackdeePageTemplate } from '../../templates/blackdee-page'
 
 const BlackdeePagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
