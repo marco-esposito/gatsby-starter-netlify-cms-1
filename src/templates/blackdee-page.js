@@ -174,25 +174,7 @@ export const blackdeePageQuery = graphql`
         services {
           heading
           description
-          service1 {
-            heading
-            intro
-            name
-            image
-          }
-          service2 {
-            heading
-            intro
-            name
-            image
-          }
-          service3 {
-            heading
-            intro
-            name
-            image
-          }
-          service4 {
+          items {
             heading
             intro
             name
@@ -200,12 +182,7 @@ export const blackdeePageQuery = graphql`
           }
         }
         clients {
-          image1
-          image2
-          image3
-          image4
-          image5
-          image6
+          image
         }
       }
     }
