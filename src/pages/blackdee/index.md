@@ -53,6 +53,5 @@ services:
       intro: >-
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate.
-clients: {}
 ---
 
