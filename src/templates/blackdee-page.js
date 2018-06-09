@@ -4,7 +4,7 @@ import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Pricing from '../components/Pricing'
 
-export const ProductPageTemplate = ({
+export const BlackdeePageTemplate = ({
   image,
   title,
   heading,
@@ -105,7 +105,7 @@ export const ProductPageTemplate = ({
   </section>
 )
 
-ProductPageTemplate.propTypes = {
+BlackdeePageTemplate.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -129,11 +129,11 @@ ProductPageTemplate.propTypes = {
   }),
 }
 
-const ProductPage = ({ data }) => {
+const BlackdeePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <ProductPageTemplate
+    <BlackdeePageTemplate
       image={frontmatter.image}
       title={frontmatter.title}
       heading={frontmatter.heading}
@@ -147,7 +147,7 @@ const ProductPage = ({ data }) => {
   )
 }
 
-ProductPage.propTypes = {
+BlackdeePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -155,10 +155,10 @@ ProductPage.propTypes = {
   }),
 }
 
-export default ProductPage
+export default BlackdeePage
 
-export const productPageQuery = graphql`
-  query ProductPageBis($id: String!) {
+export const blackdeePageQuery = graphql`
+  query BlackdeePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title

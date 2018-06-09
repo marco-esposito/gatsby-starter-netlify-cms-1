@@ -1,5 +1,5 @@
 ---
-templateKey: 'product-bis-page'
+templateKey: 'blackdee-page'
 path: /products-bis
 title: Our Coffee
 image: /img/jumbotron.jpg
