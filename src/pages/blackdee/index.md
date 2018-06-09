@@ -1,7 +1,6 @@
 ---
 templateKey: blackdee-page
-path: /blackdee
-title: Blackdee
+title: Blackdee-
 about_us:
   description: >-
     Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper
@@ -58,3 +57,4 @@ clients:
   - image: /img/jumbotron.jpg
   - image: /img/products-grid2.jpg
 ---
+
