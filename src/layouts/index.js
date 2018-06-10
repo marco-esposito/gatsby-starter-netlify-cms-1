@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
@@ -6,11 +6,11 @@ import Navbar from '../components/Navbar'
 import './all.sass'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <Fragment>
     <Helmet title="Blackdee" />
     {/* <Navbar /> */}
-    <div>{children()}</div>
-  </div>
+    {children()}
+  </Fragment>
 )
 
 TemplateWrapper.propTypes = {
