@@ -9,9 +9,9 @@ export const BlackdeePageTemplate = ({
 }) => (
   <Fragment>
     <section className="section" id="video">
-      <div className="container">
+      <div className="container is-fullhd">
         <div className="columns">
-          <div className="column is-10 is-offset-1">
+          <div className="column is-12">
             <div className="content">
               <div
                 className="full-width-image-container margin-top-0"
@@ -24,12 +24,13 @@ export const BlackdeePageTemplate = ({
       </div>
     </section>
     <section className="section" id="about-us">
-      <div className="container">
+      <div className="container is-fullhd">
         <div className="columns">
-          <div className="column is-10 is-offset-1">
+          <div className="column is-7 is-offset-4">
             <div className="content">
               <div>
-
+                <h1>{aboutUs.heading}</h1>
+                <p>{aboutUs.description}</p>
               </div>
             </div>
           </div>
