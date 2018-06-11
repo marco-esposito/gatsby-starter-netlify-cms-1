@@ -1,17 +1,30 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const renderList = (list, className) => {
+import Footer from '../components/Footer'
 
-  return list.map((item, index) => (
+const renderList = (list, className) => (
+  list.map((item, index) => (
     <div className={className} key={index}>
-      {item.image ? (<img src={item.image} alt={item.alt} />) : null}
-      {item.heading ? (<h2>{item.heading}</h2>) : null}
-      {item.intro ? (<p className="item-intro">{item.intro}</p>) : null}
-      {item.description ? (<p className="item-description">{item.description}</p>) : null}
+      {item.image ? (
+        <img src={item.image} alt={item.alt} />
+      )
+      : null}
+      {item.heading ? (
+        <h2>{item.heading}</h2>
+      )
+      : null}
+      {item.intro ? (
+        <p className="item-intro">{item.intro}</p>
+      )
+      : null}
+      {item.description ? (
+        <p className="item-description">{item.description}</p>
+      )
+      : null}
     </div>
   ))
-}
+)
 
 export const BlackdeePageTemplate = ({
   title,
@@ -78,6 +91,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
+    <Footer />
   </Fragment>
 )
 
