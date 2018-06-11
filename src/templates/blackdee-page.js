@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const renderList = (list) =>
-  list.map(item => (
-    <div className="service" key={item.image}>
-      <img src={item.image} alt={item.alt} />
-      <h2>{item.heading}</h2>
-      <p>{item.intro}</p>
-      <p>{item.description}</p>
+const renderList = (list, className) => {
+
+  return list.map((item, index) => (
+    <div className={className} key={index}>
+      {item.image ? (<img src={item.image} alt={item.alt} />) : null}
+      {item.heading ? (<h2>{item.heading}</h2>) : null}
+      {item.intro ? (<p className="item-intro">{item.intro}</p>) : null}
+      {item.description ? (<p className="item-description">{item.description}</p>) : null}
     </div>
   ))
+}
 
 export const BlackdeePageTemplate = ({
   title,
@@ -25,7 +27,7 @@ export const BlackdeePageTemplate = ({
             <div className="content">
               <div
                 className="full-width-image-container margin-top-0"
-                style={{ backgroundImage: `url(${clients[0].image})`, backgroundAttachment: 'fixed' }}
+                style={{ backgroundImage: `url(${services.items[0].image})`, backgroundAttachment: 'fixed' }}
                 >
               </div>
             </div>
@@ -38,7 +40,7 @@ export const BlackdeePageTemplate = ({
         <div className="columns">
           <div className="column is-7 is-offset-4">
             <div className="content">
-              <div>
+              <div className="section-intro">
                 <h1>{aboutUs.heading}</h1>
                 <p>{aboutUs.description}</p>
               </div>
@@ -52,11 +54,11 @@ export const BlackdeePageTemplate = ({
         <div className="columns">
           <div className="column is-7 is-offset-4">
             <div className="content">
-              <div className="intro">
+              <div className="section-intro">
                 <h1>{services.heading}</h1>
                 <p>{services.description}</p>
               </div>
-              {renderList(services.items)}
+              {renderList(services.items, 'service')}
             </div>
           </div>
         </div>
@@ -67,11 +69,10 @@ export const BlackdeePageTemplate = ({
         <div className="columns">
           <div className="column is-7 is-offset-4">
             <div className="content">
-              <div>
-                <h1>{services.heading}</h1>
-                <p>{services.description}</p>
+              <div className="section-intro">
+                <h1>{clients.heading}</h1>
               </div>
-              {renderList(services.items)}
+              {renderList(clients.items, 'clients')}
             </div>
           </div>
         </div>
