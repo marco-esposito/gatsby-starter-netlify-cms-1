@@ -1,18 +1,15 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const renderList = (list) => (
-  list.map(item => {
-    return (
-      <div className="service">
-        <img src={item.image} alt=""/>
-        <h2>{item.heading}</h2>
-        <p>{item.intro}</p>
-        <p>{item.description}</p>
-      </div>
-    )
-  })
-)
+const renderList = (list) =>
+  list.map(item => (
+    <div className="service" key={item.image}>
+      <img src={item.image} alt="" />
+      <h2>{item.heading}</h2>
+      <p>{item.intro}</p>
+      <p>{item.description}</p>
+    </div>
+  ))
 
 export const BlackdeePageTemplate = ({
   title,
@@ -55,11 +52,13 @@ export const BlackdeePageTemplate = ({
         <div className="columns">
           <div className="column is-7 is-offset-4">
             <div className="content">
-              <div className="intro">
+              <div>
                 <h1>{services.heading}</h1>
                 <p>{services.description}</p>
               </div>
-              {renderList(services.items)}
+              <div>
+                {renderList(services.items)}
+              </div>
             </div>
           </div>
         </div>
