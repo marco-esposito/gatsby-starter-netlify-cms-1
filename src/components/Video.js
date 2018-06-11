@@ -9,10 +9,13 @@ const Video = () => (
             <div
               className="full-width-image-container margin-top-0"
             >
-              <video preload="auto" autoPlay loop
-                src="https://www.frogdesign.com/wp-content/uploads/2016/11/Front_Page_FINALCUT_1000bit.mp4"
-              >
+              <div className="video-background-color"></div>
+              <div className="video-background">
+                <video preload="auto" autoPlay loop
+                  src="https://www.frogdesign.com/wp-content/uploads/2016/11/Front_Page_FINALCUT_1000bit.mp4"
+                >
                 </video>
+              </div>
             </div>
           </div>
         </div>
