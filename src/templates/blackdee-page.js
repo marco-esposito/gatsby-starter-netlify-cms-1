@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const renderList = (list) =>
   list.map(item => (
     <div className="service" key={item.image}>
-      <img src={item.image} alt="" />
+      <img src={item.image} alt={item.alt} />
       <h2>{item.heading}</h2>
       <p>{item.intro}</p>
       <p>{item.description}</p>
@@ -121,10 +121,12 @@ export const blackdeePageQuery = graphql`
             intro
             description
             image
+            alt
           }
         }
         clients {
           image
+          alt
         }
       }
     }
