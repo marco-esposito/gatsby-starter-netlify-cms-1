@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+import Video from '../components/Video'
 import Contacts from '../components/Contacts'
 import Footer from '../components/Footer'
 
@@ -34,7 +35,8 @@ export const BlackdeePageTemplate = ({
   clients,
 }) => (
   <Fragment>
-    <section className="section" id="video">
+    <Video />
+    {/* <section className="section" id="video">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-12">
@@ -48,7 +50,7 @@ export const BlackdeePageTemplate = ({
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     <section className="section" id="about-us">
       <div className="container is-fullhd">
         <div className="columns">
