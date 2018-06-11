@@ -65,4 +65,5 @@ collections:
             ]}
           - {label: Clients, name: clients, widget: list, fields: [
               {label: Image, name: image, widget: image},
+              {label: Alt, name: alt, widget: string},
             ]}
