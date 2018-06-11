@@ -15,7 +15,7 @@ export const BlackdeePageTemplate = ({
             <div className="content">
               <div
                 className="full-width-image-container margin-top-0"
-                style={{ backgroundImage: `url(${clients[0].image})` }}
+                style={{ backgroundImage: `url(${clients[0].image})`, backgroundAttachment: 'fixed' }}
                 >
               </div>
             </div>
