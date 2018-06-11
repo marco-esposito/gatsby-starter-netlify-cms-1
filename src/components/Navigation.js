@@ -8,6 +8,7 @@ const scrollDown = (id, text) => (
     to={id}
     data-offset="-45"
     spy
+    hashSpy
     smooth
     duration={500}
   >
