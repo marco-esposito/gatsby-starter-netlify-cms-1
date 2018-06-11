@@ -55,4 +55,20 @@ services:
       intro: >-
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate.
+clients:
+  heading: Clients
+  items:
+    - alt: First logo
+      image: /img/coffee-gear.png
+    - alt: Second logo
+      image: /img/coffee.png
+    - alt: Third logo
+      image: /img/meeting-space.png
+    - alt: Forth logo
+      image: /img/tutorials.png
+    - alt: Fifth logo
+      image: /img/coffee-gear.png
+    - alt: Sixth logo
+      image: /img/coffee.png
 ---
+
