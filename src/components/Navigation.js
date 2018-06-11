@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Menu = ( { headings } ) => (
+const Navigation = ( { headings } ) => (
   <div className="left-side">
     <aside className="menu">
       <div className="logo">Logo</div>
@@ -14,4 +14,4 @@ const Menu = ( { headings } ) => (
   </div>
 )
 
-export default Menu
+export default Navigation

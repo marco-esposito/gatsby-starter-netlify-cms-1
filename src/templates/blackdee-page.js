@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import Menu from '../components/Menu'
+import Navigation from '../components/Navigation'
 import Video from '../components/Video'
 import Contacts from '../components/Contacts'
 import Footer from '../components/Footer'
@@ -36,8 +36,12 @@ export const BlackdeePageTemplate = ({
   clients,
 }) => (
   <Fragment>
-    <Menu
-      headings={ { aboutUs: aboutUs.heading, services: services.heading, clients: clients.heading } }
+    <Navigation
+      headings={ {
+        aboutUs: aboutUs.heading,
+        services: services.heading,
+        clients: clients.heading,
+      } }
     />
     <Video />
     <section className="section" id="about-us">
