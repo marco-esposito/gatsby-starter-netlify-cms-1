@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+import Contacts from '../components/Contacts'
 import Footer from '../components/Footer'
 
 const renderList = (list, className) => (
@@ -91,6 +92,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
+    <Contacts />
     <Footer />
   </Fragment>
 )
