@@ -10,9 +10,6 @@ const Contacts = () => (
               <h1>Contacts</h1>
               <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
               <input type="text"/>
-              <input type="text"/>
-              <input type="text"/>
-              <input type="text"/>
               <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
               <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
               <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
