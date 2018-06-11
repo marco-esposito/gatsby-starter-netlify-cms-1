@@ -64,7 +64,10 @@ collections:
                 {label: Alt, name: alt, widget: string},
               ]},
             ]}
-          - {label: Clients, name: clients, widget: list, fields: [
-              {label: Image, name: image, widget: image},
-              {label: Alt, name: alt, widget: string},
+          - {label: Clients, name: clients, widget: object, fields: [
+              {label: Heading, name: heading, widget: string},
+              {label: Items, name: items, widget: list, fields: [
+                {label: Image, name: image, widget: image},
+                {label: Alt, name: alt, widget: string},
+              ]}
             ]}

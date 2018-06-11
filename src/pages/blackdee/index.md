@@ -55,10 +55,4 @@ services:
       intro: >-
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate.
-clients:
-  - alt: Alt for image1
-    image: /img/jumbotron.jpg
-  - alt: Alt for image2
-    image: /img/products-grid2.jpg
 ---
-

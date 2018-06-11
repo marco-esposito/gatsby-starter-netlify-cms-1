@@ -52,13 +52,26 @@ export const BlackdeePageTemplate = ({
         <div className="columns">
           <div className="column is-7 is-offset-4">
             <div className="content">
+              <div className="intro">
+                <h1>{services.heading}</h1>
+                <p>{services.description}</p>
+              </div>
+              {renderList(services.items)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="section" id="clients">
+      <div className="container is-fullhd">
+        <div className="columns">
+          <div className="column is-7 is-offset-4">
+            <div className="content">
               <div>
                 <h1>{services.heading}</h1>
                 <p>{services.description}</p>
               </div>
-              <div>
-                {renderList(services.items)}
-              </div>
+              {renderList(services.items)}
             </div>
           </div>
         </div>
@@ -125,8 +138,11 @@ export const blackdeePageQuery = graphql`
           }
         }
         clients {
-          image
-          alt
+          heading
+          items {
+            image
+            alt
+          }
         }
       }
     }
