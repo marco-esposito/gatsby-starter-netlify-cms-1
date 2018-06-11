@@ -36,18 +36,12 @@ export const BlackdeePageTemplate = ({
   clients,
 }) => (
   <Fragment>
-    <Navigation
-      headings={ {
-        aboutUs: aboutUs.heading,
-        services: services.heading,
-        clients: clients.heading,
-      } }
-    />
+    <Navigation />
     <Video />
     <section className="section" id="about-us">
       <div className="container is-fullhd">
         <div className="columns">
-          <div className="column is-7 is-offset-4">
+          <div className="column is-9 is-offset-3">
             <div className="content">
               <div className="section-intro">
                 <h1>{aboutUs.heading}</h1>
@@ -61,7 +55,7 @@ export const BlackdeePageTemplate = ({
     <section className="section" id="services">
       <div className="container is-fullhd">
         <div className="columns">
-          <div className="column is-7 is-offset-4">
+          <div className="column is-9 is-offset-3">
             <div className="content">
               <div className="section-intro">
                 <h1>{services.heading}</h1>
@@ -76,7 +70,7 @@ export const BlackdeePageTemplate = ({
     <section className="section" id="clients">
       <div className="container is-fullhd">
         <div className="columns">
-          <div className="column is-7 is-offset-4">
+          <div className="column is-9 is-offset-3">
             <div className="content">
               <div className="section-intro">
                 <h1>{clients.heading}</h1>

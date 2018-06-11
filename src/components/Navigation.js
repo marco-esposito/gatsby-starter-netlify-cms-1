@@ -1,14 +1,29 @@
 import React from 'react'
+import { Link } from 'react-scroll'
 
-const Navigation = ( { headings } ) => (
+const scrollDown = (id, text) => (
+  <Link
+    className="scroll-down"
+    activeClass="is-active"
+    to={id}
+    data-offset="-45"
+    spy
+    smooth
+    duration={500}
+  >
+    {text}
+  </Link>
+)
+
+const Navigation = () => (
   <div className="left-side">
     <aside className="menu">
       <div className="logo">Logo</div>
       <ul className="menu-list">
-        <li><a href="#about-us">{headings.aboutUs}</a></li>
-        <li><a href="#services">{headings.services}</a></li>
-        <li><a href="#clients">{headings.clients}</a></li>
-        <li><a href="#contacts">Contacts</a></li>
+        <li>{scrollDown('about-us', 'About Us')}</li>
+        <li>{scrollDown('services', 'Services')}</li>
+        <li>{scrollDown('clients', 'Clients')}</li>
+        <li>{scrollDown('contacts', 'Contacts')}</li>
       </ul>
     </aside>
   </div>
