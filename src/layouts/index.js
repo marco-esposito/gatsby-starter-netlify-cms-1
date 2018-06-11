@@ -14,7 +14,6 @@ const TemplateWrapper = ({ children }) => (
         href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
       />
     </Helmet>
-    {/* <Navbar /> */}
     {children()}
   </div>
 )

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+import Menu from '../components/Menu'
 import Video from '../components/Video'
 import Contacts from '../components/Contacts'
 import Footer from '../components/Footer'
@@ -35,22 +36,10 @@ export const BlackdeePageTemplate = ({
   clients,
 }) => (
   <Fragment>
+    <Menu
+      headings={ { aboutUs: aboutUs.heading, services: services.heading, clients: clients.heading } }
+    />
     <Video />
-    {/* <section className="section" id="video">
-      <div className="container is-fullhd">
-        <div className="columns">
-          <div className="column is-12">
-            <div className="content">
-              <div
-                className="full-width-image-container margin-top-0"
-                style={{ backgroundImage: `url(${services.items[0].image})`, backgroundAttachment: 'fixed' }}
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> */}
     <section className="section" id="about-us">
       <div className="container is-fullhd">
         <div className="columns">

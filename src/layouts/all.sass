@@ -7,6 +7,8 @@ $kaldi-red-invert: #fff
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 
+$menu-item-hover-background-color: none
+
 // Helper Classes
 .full-width-image-container
   width: 100vw
@@ -23,6 +25,29 @@ $primary-invert: $kaldi-red-invert
 
 #footer
   padding: 3rem 1.5rem
+  position: relative
+  .socials img
+    width: 2em
+    margin: 0 0.5em
+
+.menu
+  position: fixed
+  z-index: 100
+  top: 3vw
+  left: 7vw
+  .logo
+    padding: 0 0.75em 5em 0.75em
+
+.section#video
+  padding-top: 0
+
+.left-side
+  width: 24vw
+  height: 100vw
+  position: fixed
+  opacity: 0.3
+  background-color: #FFFFFF
+  z-index: 100
 
 .margin-top-0
   margin-top: 0 !important
@@ -30,12 +55,5 @@ $primary-invert: $kaldi-red-invert
 @import "~bulma"
 
 // Override
-.section, #footer
+.section
   position: relative
-
-.section#video
-  padding-top: 0
-
-#footer .socials img
-  width: 2rem
-  margin: 0 0.5rem
