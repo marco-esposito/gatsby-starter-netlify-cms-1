@@ -12,7 +12,7 @@ const Video = () => (
               <video
                 preload="auto"
                 autoplay=""
-                loop=""
+                loop="true"
                 >
                   <source src="https://www.frogdesign.com/wp-content/uploads/2016/11/Front_Page_FINALCUT_1000bit.mp4" type="video/mp4" />
                 </video>
