@@ -110,7 +110,10 @@ BlackdeePageTemplate.propTypes = {
     description: PropTypes.string,
     items: PropTypes.array,
   }),
-  clients: PropTypes.array,
+  clients: PropTypes.shape({
+    heading: PropTypes.string,
+    items: PropTypes.array,
+  }),
 }
 
 const BlackdeePage = ({ data }) => {
