@@ -19,7 +19,8 @@ services:
     vitae ligula vel ornare.
   heading: Services
   items:
-    - description: >
+    - alt: Alt image 1
+      description: >
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate. Etiam elit elit, elementum sed varius at,
         adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
@@ -36,7 +37,8 @@ services:
       intro: >-
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate.
-    - description: >
+    - alt: Alt Image 2
+      description: >
         Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget
         libero posuere vulputate. Etiam elit elit, elementum sed varius at,
         adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed,
