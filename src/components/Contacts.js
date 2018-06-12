@@ -45,13 +45,12 @@ const renderForm = () => (
             </div>
           </div>
       </div>
-    </form>
-
-    <div className="field is-grouped">
-      <div className="control">
-        <button className="button is-link" type="submit">Submit</button>
+      <div className="field is-grouped">
+        <div className="control">
+          <button className="button is-link">Submit</button>
+        </div>
       </div>
-    </div>
+    </form>
   </Fragment>
   )
 
