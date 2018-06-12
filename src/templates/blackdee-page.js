@@ -9,22 +9,36 @@ import Footer from '../components/Footer'
 const renderList = (list, className) => (
   list.map((item, index) => (
     <div className={className} key={index}>
-      {item.image ? (
-        <img src={item.image} alt={item.alt} />
-      )
-      : null}
-      {item.heading ? (
-        <h2>{item.heading}</h2>
-      )
-      : null}
-      {item.intro ? (
-        <p className="item-intro">{item.intro}</p>
-      )
-      : null}
-      {item.description ? (
-        <p className="item-description">{item.description}</p>
-      )
-      : null}
+      <div className="columns">
+        <div className="column image is-6">
+          {item.image ? (
+            <img src={item.image} alt={item.alt} />
+          )
+          : null}
+        </div>
+        <div className="column text is-6">
+          {item.heading ? (
+            <h2>{item.heading}</h2>
+          )
+          : null}
+          {item.intro ? (
+            <p className="item-intro">{item.intro}</p>
+          )
+          : null}
+          {item.description ? (
+            <p className="item-description">{item.description}</p>
+          )
+          : null}
+        </div>
+      </div>
+    </div>
+  ))
+)
+
+const renderClients = (items) => (
+  items.map((item, index) => (
+    <div className="items" key={index}>
+      <img src={item.image} alt={item.alt} />
     </div>
   ))
 )
@@ -75,7 +89,7 @@ export const BlackdeePageTemplate = ({
               <div className="section-intro">
                 <h1>{clients.heading}</h1>
               </div>
-              {renderList(clients.items, 'clients')}
+              {renderClients(clients.items)}
             </div>
           </div>
         </div>

@@ -10,6 +10,25 @@ $primary-invert: $kaldi-red-invert
 $menu-item-hover-background-color: none
 
 // Helper Classes
+.margin-top-0
+  margin-top: 0 !important
+
+.left-side
+  width: 24vw
+  height: 100vw
+  position: fixed
+  opacity: 0.3
+  background-color: #FFFFFF
+  z-index: 100
+
+.menu
+  position: fixed
+  z-index: 100
+  top: 3vw
+  left: 7vw
+  .logo
+    padding: 0 0.75em 5em 0.75em
+
 .full-width-image-container
   width: 100vw
   height: 700px
@@ -23,6 +42,12 @@ $menu-item-hover-background-color: none
   justify-content: center
   align-items: center
 
+.section#video
+  padding-top: 0
+
+.service
+  margin: 3em 0
+
 #footer
   padding: 3rem 1.5rem
   position: relative
@@ -34,28 +59,6 @@ $menu-item-hover-background-color: none
     justify-content: space-between
     .data
       align-self: center
-
-.menu
-  position: fixed
-  z-index: 100
-  top: 3vw
-  left: 7vw
-  .logo
-    padding: 0 0.75em 5em 0.75em
-
-.section#video
-  padding-top: 0
-
-.left-side
-  width: 24vw
-  height: 100vw
-  position: fixed
-  opacity: 0.3
-  background-color: #FFFFFF
-  z-index: 100
-
-.margin-top-0
-  margin-top: 0 !important
 
 @import "~bulma"
 
