@@ -47,7 +47,7 @@ const renderForm = () => (
       </div>
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link">Submit</button>
+          <button className="button is-link" type="submit">Submit</button>
         </div>
       </div>
     </form>
