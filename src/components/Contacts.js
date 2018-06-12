@@ -1,18 +1,30 @@
 import React, { Fragment, Component } from 'react'
-
+import _ from 'lodash'
 
 class Contacts extends Component {
 
   state = {
+    isDangerClass: {
+      name: '',
+      company: '',
+      email: '',
+      message: '',
+    },
+    isHiddenClass: {
+      name: 'is-hidden',
+      company: 'is-hidden',
+      email: 'is-hidden',
+      message: 'is-hidden',
+    },
     formValues: {
       name: '',
       company: '',
       email: '',
       message: '',
-    }
+    },
   }
 
-  changeField = (evt) => {
+  handleChangeField = (evt) => {
     this.setState({
       ...this.state,
       formValues: {
@@ -20,6 +32,41 @@ class Contacts extends Component {
         [evt.target.name]: evt.target.value,
       }
     });
+  }
+
+  handleIncompleteField = evt => {
+    if (!evt.target.value.length) {
+      this.setState({
+        ...this.state,
+        isDangerClass: {
+          ...this.state.isDangerClass,
+          [evt.target.name]: 'is-danger',
+        },
+        isHiddenClass: {
+          ...this.state.isHiddenClass,
+          [evt.target.name]: '',
+        },
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        isDangerClass: {
+          ...this.state.isDangerClass,
+          [evt.target.name]: '',
+        },
+        isHiddenClass: {
+          ...this.state.isHiddenClass,
+          [evt.target.name]: 'is-hidden',
+        },
+      });
+    }
+  }
+
+  handleValidation = evt => {
+    const emptyValues = _.filter(this.state.formValues, value => !value.length);
+    if (emptyValues.length) {
+      evt.preventDefault();
+    };
   }
 
   renderForm = () => (
@@ -37,41 +84,46 @@ class Contacts extends Component {
               <label className="label">Name and surname</label>
               <div className="control">
                 <input
-                  className="input"
+                  className={`input ${this.state.isDangerClass.name}`}
                   name="name"
                   autoComplete="name"
                   type="text"
                   placeholder="Your text here"
-                  onChange={this.changeField}
+                  onChange={this.handleChangeField}
+                  onBlur={this.handleIncompleteField}
                 />
               </div>
+              <p className={`help ${this.state.isDangerClass.name} ${this.state.isHiddenClass.name}`}>This is a compulsory field</p>
             </div>
             <div className="field">
               <label className="label">Company</label>
               <div className="control">
                 <input
-                  className="input"
+                  className={`input ${this.state.isDangerClass.company}`}
                   type="text"
                   name="company"
                   autoComplete="company"
                   placeholder="Your text here"
-                  onChange={this.changeField}
+                  onChange={this.handleChangeField}
+                  onBlur={this.handleIncompleteField}
                 />
               </div>
+              <p className={`help ${this.state.isDangerClass.company} ${this.state.isHiddenClass.company}`}>This is a compulsory field</p>
             </div>
 
             <div className="field">
               <label className="label">Email</label>
               <div className="control">
                 <input
-                  className="input is-danger"
+                  className={`input ${this.state.isDangerClass.email}`}
                   name="email"
                   type="email"
                   placeholder="Your text here"
-                  onChange={this.changeField}
+                  onChange={this.handleChangeField}
+                  onBlur={this.handleIncompleteField}
                 />
               </div>
-              <p className="help is-danger">This email is invalid</p>
+              <p className={`help ${this.state.isDangerClass.email} ${this.state.isHiddenClass.email}`}>This is a compulsory field</p>
             </div>
           </div>
           <div className="column is-5">
@@ -79,20 +131,28 @@ class Contacts extends Component {
               <label className="label">Message</label>
               <div className="control">
                 <textarea
-                  className="textarea"
+                  className={`textarea ${this.state.isDangerClass.message}`}
                   name="message"
                   placeholder="Textarea"
                   rows="10"
-                  onChange={this.changeField}
+                  onChange={this.handleChangeField}
+                  onBlur={this.handleIncompleteField}
                 >
                 </textarea>
               </div>
+              <p className={`help ${this.state.isDangerClass.message} ${this.state.isHiddenClass.message}`}>This is a compulsory field</p>
             </div>
           </div>
       </div>
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link" type="submit">Submit</button>
+          <button
+            className="button is-link"
+            type="submit"
+            onClick={this.handleValidation}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </form>
@@ -100,7 +160,6 @@ class Contacts extends Component {
   )
 
   render () {
-    console.log(this.state.formValues);
     return (
       <section className="section" id="contacts">
         <div className="container is-fullhd">
