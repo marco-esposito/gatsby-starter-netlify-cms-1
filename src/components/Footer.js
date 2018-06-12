@@ -2,7 +2,7 @@ import React from 'react'
 import facebook from '../img/socials/facebook.png'
 
 const Footer = () => (
-  <footer id="footer">
+  <footer id="footer" className="odd">
     <div className="container is-fullhd">
       <div className="columns">
         <div className="column">

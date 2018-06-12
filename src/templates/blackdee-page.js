@@ -37,7 +37,7 @@ const renderList = (list, className) => (
 
 const renderClients = (items) => (
   items.map((item, index) => (
-    <div className="items" key={index}>
+    <div className="item" key={index}>
       <img src={item.image} alt={item.alt} />
     </div>
   ))
@@ -52,7 +52,7 @@ export const BlackdeePageTemplate = ({
   <Fragment>
     <Navigation />
     <Video />
-    <section className="section" id="about-us">
+    <section className="section odd" id="about-us">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-9 is-offset-3">
@@ -81,7 +81,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
-    <section className="section" id="clients">
+    <section className="section odd" id="clients">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-9 is-offset-3">
@@ -89,7 +89,9 @@ export const BlackdeePageTemplate = ({
               <div className="section-intro">
                 <h1>{clients.heading}</h1>
               </div>
-              {renderClients(clients.items)}
+              <div className="items">
+                {renderClients(clients.items)}
+              </div>
             </div>
           </div>
         </div>
