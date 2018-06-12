@@ -1,6 +1,28 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 
-const renderForm = () => (
+
+class Contacts extends Component {
+
+  state = {
+    formValues: {
+      name: '',
+      company: '',
+      email: '',
+      message: '',
+    }
+  }
+
+  changeField = (evt) => {
+    this.setState({
+      ...this.state,
+      formValues: {
+        ...this.state.formValues,
+        [evt.target.name]: evt.target.value,
+      }
+    });
+  }
+
+  renderForm = () => (
   <Fragment>
     <form
       name="contact"
@@ -14,25 +36,40 @@ const renderForm = () => (
             <div className="field">
               <label className="label">Name and surname</label>
               <div className="control">
-                <input className="input" name="name" autoComplete="name" type="text" placeholder="Your text here" />
+                <input
+                  className="input"
+                  name="name"
+                  autoComplete="name"
+                  type="text"
+                  placeholder="Your text here"
+                  onChange={this.changeField}
+                />
               </div>
             </div>
             <div className="field">
               <label className="label">Company</label>
               <div className="control">
-                <input className="input" type="text" name="company" autoComplete="company" placeholder="Your text here" />
+                <input
+                  className="input"
+                  type="text"
+                  name="company"
+                  autoComplete="company"
+                  placeholder="Your text here"
+                  onChange={this.changeField}
+                />
               </div>
             </div>
+
             <div className="field">
               <label className="label">Email</label>
-              <div className="control has-icons-left has-icons-right">
-                <input className="input is-danger" type="email" name="email" placeholder="Your text here" />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle"></i>
-                </span>
+              <div className="control">
+                <input
+                  className="input is-danger"
+                  name="email"
+                  type="email"
+                  placeholder="Your text here"
+                  onChange={this.changeField}
+                />
               </div>
               <p className="help is-danger">This email is invalid</p>
             </div>
@@ -41,7 +78,14 @@ const renderForm = () => (
             <div className="field">
               <label className="label">Message</label>
               <div className="control">
-                <textarea className="textarea" placeholder="Textarea" rows="10"></textarea>
+                <textarea
+                  className="textarea"
+                  name="message"
+                  placeholder="Textarea"
+                  rows="10"
+                  onChange={this.changeField}
+                >
+                </textarea>
               </div>
             </div>
           </div>
@@ -55,24 +99,28 @@ const renderForm = () => (
   </Fragment>
   )
 
-const Contacts = () => (
-  <section className="section" id="contacts">
-    <div className="container is-fullhd">
-      <div className="columns">
-        <div className="column is-9 is-offset-3">
-          <div className="content">
-            <div className="section-intro">
-              <h1>Contacts</h1>
-              <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
-            </div>
-            <div className="contact-form">
-              {renderForm()}
+  render () {
+    console.log(this.state.formValues);
+    return (
+      <section className="section" id="contacts">
+        <div className="container is-fullhd">
+          <div className="columns">
+            <div className="column is-9 is-offset-3">
+              <div className="content">
+                <div className="section-intro">
+                  <h1>Contacts</h1>
+                  <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
+                </div>
+                <div className="contact-form">
+                  {this.renderForm()}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-)
+      </section>
+    )
+  }
+}
 
 export default Contacts
