@@ -26,7 +26,7 @@ const renderForm = () => (
             <div className="field">
               <label className="label">Email</label>
               <div className="control has-icons-left has-icons-right">
-                <input className="input is-danger" type="email" name="email" autoComplete="off" placeholder="Your text here" />
+                <input className="input is-danger" type="email" name="email" placeholder="Your text here" />
                 <span className="icon is-small is-left">
                   <i className="fas fa-envelope"></i>
                 </span>
