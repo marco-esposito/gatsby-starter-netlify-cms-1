@@ -8,6 +8,7 @@ const renderForm = () => (
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div className="columns">
           <div className="column is-5">
             <div className="field">
