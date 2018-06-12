@@ -17,15 +17,17 @@ const scrollDown = (id, text) => (
 )
 
 const Navigation = () => (
-  <aside className="menu">
-    <div className="logo">Logo</div>
-    <ul className="menu-list">
-      <li>{scrollDown('about-us', 'About Us')}</li>
-      <li>{scrollDown('services', 'Services')}</li>
-      <li>{scrollDown('clients', 'Clients')}</li>
-      <li>{scrollDown('contacts', 'Contacts')}</li>
-    </ul>
-  </aside>
+  <div className="container is-fullhd">
+    <aside className="menu">
+      <div className="logo">Logo</div>
+      <ul className="menu-list">
+        <li>{scrollDown('about-us', 'About Us')}</li>
+        <li>{scrollDown('services', 'Services')}</li>
+        <li>{scrollDown('clients', 'Clients')}</li>
+        <li>{scrollDown('contacts', 'Contacts')}</li>
+      </ul>
+    </aside>
+  </div>
 )
 
 export default Navigation
