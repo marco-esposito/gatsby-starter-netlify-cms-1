@@ -4,6 +4,12 @@ import _ from 'lodash'
 import Input from './Input'
 import TextArea from './TextArea'
 
+const encode = (data) => {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+  }
+
 class Contacts extends Component {
 
   state = {
@@ -91,7 +97,17 @@ class Contacts extends Component {
     const emptyValues = _.filter(this.state.formValues, value => !value.length);
     if (emptyValues.length) {
       evt.preventDefault();
-    };
+    } else {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state })
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error));
+
+      evt.preventDefault();
+    }
   }
 
   renderField = (tag, label, name, type) => (
