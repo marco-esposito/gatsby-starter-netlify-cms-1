@@ -53,7 +53,7 @@ class Contacts extends Component {
     });
   }
 
-  // Check empty fields when user blur
+  // Check empty fields when user blurs
   validateSingleEmptyField = evt => {
     if (!evt.target.value.length) {
       this.setState({
