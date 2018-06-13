@@ -25,22 +25,14 @@ class Contacts extends Component {
       email: 'is-hidden',
       message: 'is-hidden',
     },
+    isLoading: '',
+    disabled: false,
     formValues: {
       name: '',
       company: '',
       email: '',
       message: '',
     },
-  }
-
-  fetchSubmit = () => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state.formValues })
-    })
-      .then(() => {console.log('success!'); })
-      .catch(error => alert(error));
   }
 
   handleChangeField = (evt) => {
@@ -130,7 +122,20 @@ class Contacts extends Component {
   handleSubmit = evt => {
     // Submit with a fetch
     if (this.validateAllEmptyFields() && this.validateEmail()) {
-      this.fetchSubmit();
+      this.setState({
+        ...this.state,
+        isLoading: 'is-loading',
+        disabled: true,
+      });
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state.formValues })
+      })
+        .then(() => {
+
+        })
+        .catch(error => alert(error));
     }
     evt.preventDefault();
   }
@@ -195,7 +200,8 @@ class Contacts extends Component {
       <div className="field is-grouped">
         <div className="control">
           <button
-            className="button is-link"
+            className={`button is-link ${this.state.isLoading}`}
+            disabled={this.state.disabled}
             type="submit"
             onClick={this.handleSubmit}
           >
