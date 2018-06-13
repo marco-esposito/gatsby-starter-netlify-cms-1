@@ -67,23 +67,23 @@ class Contacts extends Component {
   }
 
   handleValidation = evt => {
-    // Activate "is-danger" on empty fields
-    // useful when user clicks on submit without entering any field
+    // Activate "is-danger" on empty fields when user click submit
+    // "Reduce" creates a new filtered object containing only the empty fields
     const formValues = this.state.formValues;
-    const isDangerClassFilteredObject = Object.keys(formValues).reduce((acc, currValue) => {
+    const isDangerFilteredObject = Object.keys(formValues).reduce((acc, currValue) => {
       if (!formValues[currValue].length) acc[currValue] = 'is-danger';
       return acc;
     }, {})
-    const isHiddenClassFilteredObject = _.mapValues(isDangerClassFilteredObject, () => '');
+    const emptyFieldsObject = _.mapValues(isDangerFilteredObject, () => '');
     this.setState({
       ...this.state,
       isDangerClass: {
         ...this.state.isDangerClass,
-        ...isDangerClassFilteredObject,
+        ...isDangerFilteredObject,
       },
       isHiddenClass: {
         ...this.state.isHiddenClass,
-        ...isHiddenClassFilteredObject,
+        ...emptyFieldsObject,
       }
     });
 
