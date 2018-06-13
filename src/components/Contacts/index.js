@@ -25,8 +25,8 @@ class Contacts extends Component {
       email: 'is-hidden',
       message: 'is-hidden',
     },
-    isLoading: '',
-    disabled: false,
+    isLoadingClass: '',
+    disabledProperty: false,
     formValues: {
       name: '',
       company: '',
@@ -124,8 +124,8 @@ class Contacts extends Component {
     if (this.validateAllEmptyFields() && this.validateEmail()) {
       this.setState({
         ...this.state,
-        isLoading: 'is-loading',
-        disabled: true,
+        isLoadingClass: 'is-loading',
+        disabledProperty: true,
       });
       fetch("/", {
         method: "POST",
@@ -133,7 +133,11 @@ class Contacts extends Component {
         body: encode({ "form-name": "contact", ...this.state.formValues })
       })
         .then(() => {
-
+          this.setState({
+            ...this.state,
+            isLoadingClass: '',
+            disabledProperty: false,
+          });
         })
         .catch(error => alert(error));
     }
@@ -200,8 +204,8 @@ class Contacts extends Component {
       <div className="field is-grouped">
         <div className="control">
           <button
-            className={`button is-link ${this.state.isLoading}`}
-            disabled={this.state.disabled}
+            className={`button is-link ${this.state.isLoadingClass}`}
+            disabled={this.state.disabledProperty}
             type="submit"
             onClick={this.handleSubmit}
           >
