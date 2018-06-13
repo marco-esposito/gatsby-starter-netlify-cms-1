@@ -4,9 +4,18 @@ import Link from 'gatsby-link'
 
 export default class IndexPage extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-    console.log('***********', posts);
+    const { data } = this.props;
+    const { allMarkdownRemark: { edges } } = data;
+    const { node: { frontmatter } } = edges[0];
+    // return (
+    //   <BlackdeePageTemplate
+    //     title={frontmatter.title}
+    //     aboutUs={frontmatter.about_us}
+    //     services={frontmatter.services}
+    //     clients={frontmatter.clients}
+    //   />
+    // )
+    console.log('***********', frontmatter);
 
     return (
       <div></div>
@@ -54,7 +63,7 @@ export default class IndexPage extends React.Component {
 // }
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query BlackdeePage {
     allMarkdownRemark(
       # sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blackdee-page" } }}
