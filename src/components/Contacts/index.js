@@ -172,7 +172,7 @@ class Contacts extends Component {
             <div className="column is-9 is-offset-3">
               <div className="content">
                 <div className="section-intro">
-                  <h1>Contacts-</h1>
+                  <h1>Contacts</h1>
                   <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
                 </div>
                 <div className="contact-form">
