@@ -121,7 +121,6 @@ BlackdeePageTemplate.propTypes = {
 
 const BlackdeePage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  console.log('*****data****', data)
   return (
     <BlackdeePageTemplate
       title={frontmatter.title}
