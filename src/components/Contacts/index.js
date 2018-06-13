@@ -72,6 +72,20 @@ class Contacts extends Component {
     }
   }
 
+  fetchSubmit = async () => {
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state.formValues })
+      });
+      const data = await response.json();
+      alert('success!!')
+    } catch (e) {
+      alert(e);
+    }
+  }
+
   handleValidation = evt => {
     // Activate "is-danger" on empty fields when user click submit
     // "Reduce" creates a new filtered object containing only the empty fields
@@ -98,14 +112,7 @@ class Contacts extends Component {
     if (emptyValues.length) {
       evt.preventDefault();
     } else {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state.formValues })
-      })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error));
-
+      this.fetchSubmit();
       evt.preventDefault();
     }
   }
