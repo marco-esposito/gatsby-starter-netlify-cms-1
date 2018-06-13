@@ -119,7 +119,7 @@ BlackdeePageTemplate.propTypes = {
   }),
 }
 
-const BlackdeePage = ({ data }) => {
+const BlackdeePageOld = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
     <BlackdeePageTemplate
@@ -131,7 +131,7 @@ const BlackdeePage = ({ data }) => {
   )
 }
 
-BlackdeePage.propTypes = {
+BlackdeePageOld.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -139,10 +139,10 @@ BlackdeePage.propTypes = {
   }),
 }
 
-export default BlackdeePage
+export default BlackdeePageOld
 
 export const blackdeePageQuery = graphql`
-  query BlackdeePage($id: String!) {
+  query BlackdeePageOld($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
