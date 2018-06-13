@@ -54,7 +54,7 @@ class Contacts extends Component {
   }
 
   // Check empty fields when user blur
-  handleBlurField = evt => {
+  validateSingleEmptyField = evt => {
     if (!evt.target.value.length) {
       this.setState({
         ...this.state,
@@ -103,9 +103,7 @@ class Contacts extends Component {
       return true;
   }
 
-  //TODO: function validateAll
-
-  handleSubmit = evt => {
+  validateAllEmptyFields = () => {
     // Activate "is-danger" on empty fields when user submits the form
     // "Reduce" creates a new filtered object containing only the empty fields
     const formValues = this.state.formValues;
@@ -125,10 +123,13 @@ class Contacts extends Component {
         ...emptyFieldsObject,
       }
     });
-
-    // Submit with a fetch
     const emptyValues = _.filter(this.state.formValues, value => !value.length);
-    if (!emptyValues.length && this.validateEmail()) {
+    return !emptyValues.length;
+  }
+
+  handleSubmit = evt => {
+    // Submit with a fetch
+    if (this.validateAllEmptyFields() && this.validateEmail()) {
       this.fetchSubmit();
     }
     evt.preventDefault();
@@ -147,7 +148,7 @@ class Contacts extends Component {
               name={name}
               type={type}
               onChangeField={this.handleChangeField}
-              onBlurField={this.handleBlurField}
+              onBlurField={this.validateSingleEmptyField}
               isHiddenClass={this.state.isHiddenClass}
               isDangerClass={this.state.isDangerClass}
             />
@@ -158,7 +159,7 @@ class Contacts extends Component {
               className={`textarea ${this.state.isDangerClass[name]}`}
               name={name}
               onChangeField={this.handleChangeField}
-              onBlurField={this.handleBlurField}
+              onBlurField={this.validateSingleEmptyField}
             />
           )
         }
