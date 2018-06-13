@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react'
 import _ from 'lodash'
 
 import Input from './Input'
-import Textarea from './Textarea'
+import Textarea from './TextArea'
 
 class Contacts extends Component {
 
