@@ -113,7 +113,7 @@ class Contacts extends Component {
           case 'textarea':
           return (
             <Textarea
-              className={`textarea ${this.state.isDangerClass.message}`}
+              className={`textarea ${this.state.isDangerClass[name]}`}
               name={name}
               onChange={this.handleChangeField}
               onBlur={this.handleBlurField}
@@ -146,7 +146,7 @@ class Contacts extends Component {
             {this.renderField('input', 'Email', 'email', 'email')}
           </div>
           <div className="column is-5">
-            {this.renderField('textarea', 'Message', 'message', null)}
+            {this.renderField('textarea', 'Message', 'message')}
           </div>
       </div>
       <div className="field is-grouped">
@@ -176,7 +176,7 @@ class Contacts extends Component {
                   <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
                 </div>
                 <div className="contact-form">
-                  {/* {this.renderForm()} */}
+                  {this.renderForm()}
                 </div>
               </div>
             </div>
