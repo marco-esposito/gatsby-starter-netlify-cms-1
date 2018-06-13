@@ -33,6 +33,16 @@ class Contacts extends Component {
     },
   }
 
+  fetchSubmit = () => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state.formValues })
+    })
+      .then(() => {console.log('success!'); })
+      .catch(error => alert(error));
+  }
+
   handleChangeField = (evt) => {
     this.setState({
       ...this.state,
@@ -72,18 +82,31 @@ class Contacts extends Component {
     }
   }
 
-  fetchSubmit = () => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state.formValues })
-    })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+  validateEmail = () => {
+      const email = this.state.formValues.email;
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!re.test(String(email).toLowerCase())) {
+        // Email not valid
+        this.setState({
+          ...this.state,
+          isDangerClass: {
+            ...this.state.isDangerClass,
+            email: 'is-danger',
+          },
+          isHiddenClass: {
+            ...this.state.isHiddenClass,
+            email: '',
+          },
+        });
+        return false;
+      };
+      return true;
   }
 
-  handleValidation = evt => {
-    // Activate "is-danger" on empty fields when user click submit
+  //TODO: function validateAll
+
+  handleSubmit = evt => {
+    // Activate "is-danger" on empty fields when user submits the form
     // "Reduce" creates a new filtered object containing only the empty fields
     const formValues = this.state.formValues;
     const isDangerFilteredObject = Object.keys(formValues).reduce((acc, currValue) => {
@@ -105,7 +128,7 @@ class Contacts extends Component {
 
     // Submit with a fetch
     const emptyValues = _.filter(this.state.formValues, value => !value.length);
-    if (!emptyValues.length) {
+    if (!emptyValues.length && this.validateEmail()) {
       this.fetchSubmit();
     }
     evt.preventDefault();
@@ -125,6 +148,8 @@ class Contacts extends Component {
               type={type}
               onChangeField={this.handleChangeField}
               onBlurField={this.handleBlurField}
+              isHiddenClass={this.state.isHiddenClass}
+              isDangerClass={this.state.isDangerClass}
             />
           )
           case 'textarea':
@@ -171,7 +196,7 @@ class Contacts extends Component {
           <button
             className="button is-link"
             type="submit"
-            onClick={this.handleValidation}
+            onClick={this.handleSubmit}
           >
             Submit
           </button>
