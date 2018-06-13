@@ -10,6 +10,16 @@ const encode = (data) => {
         .join("&");
   }
 
+const fetchSubmit = async () => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state.formValues })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+  }
+
 class Contacts extends Component {
 
   state = {
@@ -72,18 +82,6 @@ class Contacts extends Component {
     }
   }
 
-  fetchSubmit = async () => {
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state.formValues })
-      });
-      alert('success!!')
-    } catch (e) {
-      alert(e);
-    }
-  }
 
   handleValidation = evt => {
     // Activate "is-danger" on empty fields when user click submit
@@ -106,14 +104,12 @@ class Contacts extends Component {
       }
     });
 
-    // Prevent to submit if compulsory fields are empty
+    // Submit with a fetch
     const emptyValues = _.filter(this.state.formValues, value => !value.length);
-    if (emptyValues.length) {
-      evt.preventDefault();
-    } else {
-      this.fetchSubmit();
-      evt.preventDefault();
+    if (!emptyValues.length) {
+      fetchSubmit();
     }
+    evt.preventDefault();
   }
 
   renderField = (tag, label, name, type) => (
