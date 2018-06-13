@@ -154,18 +154,20 @@ class Contacts extends Component {
           return (
             <Input
               className={`input ${this.state.isDangerClass[name]}`}
+              isHiddenClass={this.state.isHiddenClass}
+              isDangerClass={this.state.isDangerClass}
               name={name}
               type={type}
               onChangeField={this.handleChangeField}
               onBlurField={this.validateSingleEmptyField}
-              isHiddenClass={this.state.isHiddenClass}
-              isDangerClass={this.state.isDangerClass}
             />
           )
           case 'textarea':
           return (
             <TextArea
               className={`textarea ${this.state.isDangerClass[name]}`}
+              isHiddenClass={this.state.isHiddenClass}
+              isDangerClass={this.state.isDangerClass}
               name={name}
               onChangeField={this.handleChangeField}
               onBlurField={this.validateSingleEmptyField}
@@ -175,7 +177,6 @@ class Contacts extends Component {
         })()
         }
       </div>
-      <p className={`help ${this.state.isDangerClass[name]} ${this.state.isHiddenClass[name]}`}>This is a compulsory field</p>
     </div>
   )
 
