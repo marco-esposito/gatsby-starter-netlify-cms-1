@@ -106,8 +106,8 @@ class Contacts extends Component {
               className={`input ${this.state.isDangerClass[name]}`}
               name={name}
               type={type}
-              onChange={this.handleChangeField}
-              onBlur={this.handleBlurField}
+              onChangeField={this.handleChangeField}
+              onBlurField={this.handleBlurField}
             />
           )
           case 'textarea':
@@ -115,8 +115,8 @@ class Contacts extends Component {
             <Textarea
               className={`textarea ${this.state.isDangerClass[name]}`}
               name={name}
-              onChange={this.handleChangeField}
-              onBlur={this.handleBlurField}
+              onChangeField={this.handleChangeField}
+              onBlurField={this.handleBlurField}
             />
           )
         }
