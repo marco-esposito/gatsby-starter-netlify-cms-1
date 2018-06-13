@@ -25,8 +25,10 @@ class Contacts extends Component {
       email: 'is-hidden',
       message: 'is-hidden',
     },
-    isLoadingClass: '',
-    disabledProperty: false,
+    buttonLoadingClass: '',
+    buttonDisabled: false,
+    notificationSuccessClass: 'is-hidden',
+    notificationDangerClass: 'is-hidden',
     formValues: {
       name: '',
       company: '',
@@ -74,27 +76,6 @@ class Contacts extends Component {
     }
   }
 
-  validateEmail = () => {
-      const email = this.state.formValues.email;
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (!re.test(String(email).toLowerCase())) {
-        // Email not valid
-        this.setState({
-          ...this.state,
-          isDangerClass: {
-            ...this.state.isDangerClass,
-            email: 'is-danger',
-          },
-          isHiddenClass: {
-            ...this.state.isHiddenClass,
-            email: '',
-          },
-        });
-        return false;
-      };
-      return true;
-  }
-
   validateAllEmptyFields = () => {
     // Activate "is-danger" on empty fields when user submits the form
     // "Reduce" creates a new filtered object containing only the empty fields
@@ -119,28 +100,66 @@ class Contacts extends Component {
     return !emptyValues.length;
   }
 
+  validateEmail = () => {
+      const email = this.state.formValues.email;
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!re.test(String(email).toLowerCase())) {
+        // Email not valid
+        this.setState({
+          ...this.state,
+          isDangerClass: {
+            ...this.state.isDangerClass,
+            email: 'is-danger',
+          },
+          isHiddenClass: {
+            ...this.state.isHiddenClass,
+            email: '',
+          },
+        });
+        return false;
+      };
+      return true;
+  }
+
   handleSubmit = evt => {
     // Submit with a fetch
     if (this.validateAllEmptyFields() && this.validateEmail()) {
       this.setState({
         ...this.state,
-        isLoadingClass: 'is-loading',
-        disabledProperty: true,
+        buttonLoadingClass: 'is-loading',
+        buttonDisabled: true,
       });
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...this.state.formValues })
       })
-        .then(() => {
-          this.setState({
-            ...this.state,
-            isLoadingClass: '',
-            disabledProperty: false,
-          });
-        })
-        .catch(error => alert(error));
+      .then(() => {
+        this.setState({
+          ...this.state,
+          buttonLoadingClass: '',
+          buttonDisabled: false,
+          notificationSuccessClass: 'is-success',
+          notificationDangerClass: 'is-hidden',
+        });
+      })
+      .catch(this.setState({
+        ...this.state,
+        buttonLoadingClass: '',
+        buttonDisabled: false,
+        notificationDangerClass: 'is-danger',
+        notificationSuccessClass: 'is-hidden',
+      }));
     }
+    evt.preventDefault();
+  }
+
+  handleDeleteNotification = (evt) => {
+    this.setState({
+      ...this.state,
+      notificationSuccessClass: 'is-hidden',
+      notificationDangerClass: 'is-hidden',
+    });
     evt.preventDefault();
   }
 
@@ -205,14 +224,22 @@ class Contacts extends Component {
       <div className="field is-grouped">
         <div className="control">
           <button
-            className={`button is-link ${this.state.isLoadingClass}`}
-            disabled={this.state.disabledProperty}
+            className={`button is-link ${this.state.buttonLoadingClass}`}
+            disabled={this.state.buttonDisabled}
             type="submit"
             onClick={this.handleSubmit}
           >
             Submit
           </button>
         </div>
+      </div>
+      <div class={`notification ${this.state.notificationSuccessClass}`}>
+        <button class="delete" onClick={this.handleDeleteNotification}></button>
+          Your message has been successfully sent!
+      </div>
+      <div class={`notification ${this.state.notificationDangerClass}`}>
+        <button class="delete" onClick={this.handleDeleteNotification}></button>
+          Something went wrong. Please try again.
       </div>
     </form>
   </Fragment>
