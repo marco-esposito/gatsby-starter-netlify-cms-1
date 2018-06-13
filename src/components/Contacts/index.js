@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react'
 import _ from 'lodash'
 
 import Input from './Input'
-import Textarea from './TextArea'
+import TextArea from './TextArea'
 
 class Contacts extends Component {
 
@@ -112,7 +112,7 @@ class Contacts extends Component {
           )
           case 'textarea':
           return (
-            <Textarea
+            <TextArea
               className={`textarea ${this.state.isDangerClass[name]}`}
               name={name}
               onChangeField={this.handleChangeField}
