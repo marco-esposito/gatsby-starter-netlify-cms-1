@@ -10,7 +10,6 @@ const encode = (data) => {
         .join("&");
   }
 
-
 class Contacts extends Component {
 
   state = {
