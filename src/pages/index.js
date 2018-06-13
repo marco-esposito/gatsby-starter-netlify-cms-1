@@ -1,66 +1,148 @@
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
-export default class IndexPage extends React.Component {
+import Navigation from '../components/Navigation'
+import Video from '../components/Video'
+import Contacts from '../components/Contacts'
+import Footer from '../components/Footer'
+
+const renderList = (list, className) => (
+  list.map((item, index) => (
+    <div className={className} key={index}>
+      <div className="columns">
+        <div className="column image is-6">
+          {item.image ? (
+            <img src={item.image} alt={item.alt} />
+          )
+          : null}
+        </div>
+        <div className="column text is-6">
+          {item.heading ? (
+            <h2>{item.heading}</h2>
+          )
+          : null}
+          {item.intro ? (
+            <p className="item-intro">{item.intro}</p>
+          )
+          : null}
+          {item.description ? (
+            <p className="item-description">{item.description}</p>
+          )
+          : null}
+        </div>
+      </div>
+    </div>
+  ))
+)
+
+const renderClients = (items) => (
+  items.map((item, index) => (
+    <div className="item" key={index}>
+      <img src={item.image} alt={item.alt} />
+    </div>
+  ))
+)
+
+export const BlackdeePageTemplate = ({
+  title,
+  aboutUs,
+  services,
+  clients,
+}) => (
+  <Fragment>
+    <Navigation />
+    <Video />
+    <section className="section odd" id="about-us">
+      <div className="container is-fullhd">
+        <div className="columns">
+          <div className="column is-9 is-offset-3">
+            <div className="content">
+              <div className="section-intro">
+                <h1>{aboutUs.heading}</h1>
+                <p>{aboutUs.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="section" id="services">
+      <div className="container is-fullhd">
+        <div className="columns">
+          <div className="column is-9 is-offset-3">
+            <div className="content">
+              <div className="section-intro">
+                <h1>{services.heading}</h1>
+                <p>{services.description}</p>
+              </div>
+              {renderList(services.items, 'service')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="section odd" id="clients">
+      <div className="container is-fullhd">
+        <div className="columns">
+          <div className="column is-9 is-offset-3">
+            <div className="content">
+              <div className="section-intro">
+                <h1>{clients.heading}</h1>
+              </div>
+              <div className="items">
+                {renderClients(clients.items)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <Contacts />
+    <Footer />
+  </Fragment>
+)
+
+BlackdeePageTemplate.propTypes = {
+  title: PropTypes.string,
+  aboutUs: PropTypes.shape({
+    heading: PropTypes.string,
+    description: PropTypes.text,
+  }),
+  services: PropTypes.shape({
+    heading: PropTypes.string,
+    description: PropTypes.string,
+    items: PropTypes.array,
+  }),
+  clients: PropTypes.shape({
+    heading: PropTypes.string,
+    items: PropTypes.array,
+  }),
+}
+
+export default class IndexPage extends Component {
   render() {
     const { data } = this.props;
     const { allMarkdownRemark: { edges } } = data;
     const { node: { frontmatter } } = edges[0];
-    // return (
-    //   <BlackdeePageTemplate
-    //     title={frontmatter.title}
-    //     aboutUs={frontmatter.about_us}
-    //     services={frontmatter.services}
-    //     clients={frontmatter.clients}
-    //   />
-    // )
-    console.log('***********', frontmatter);
-
     return (
-      <div></div>
-      // <section className="section">
-      //   <div className="container">
-      //     <div className="content">
-      //       <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-      //     </div>
-      //     {posts
-      //       .map(({ node: post }) => (
-      //         <div
-      //           className="content"
-      //           style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-      //           key={post.id}
-      //         >
-      //           <p>
-      //             <Link className="has-text-primary" to={post.fields.slug}>
-      //               {post.frontmatter.title}
-      //             </Link>
-      //             <span> &bull; </span>
-      //             <small>{post.frontmatter.date}</small>
-      //           </p>
-      //           <p>
-      //             {post.excerpt}
-      //             <br />
-      //             <br />
-      //             <Link className="button is-small" to={post.fields.slug}>
-      //               Keep Reading →
-      //             </Link>
-      //           </p>
-      //         </div>
-      //       ))}
-      //   </div>
-      // </section>
+      <BlackdeePageTemplate
+        title={frontmatter.title}
+        aboutUs={frontmatter.about_us}
+        services={frontmatter.services}
+        clients={frontmatter.clients}
+      />
     )
   }
 }
 
-// IndexPage.propTypes = {
-//   data: PropTypes.shape({
-//     allMarkdownRemark: PropTypes.shape({
-//       edges: PropTypes.array,
-//     }),
-//   }),
-// }
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
+}
 
 export const pageQuery = graphql`
   query BlackdeePage {
