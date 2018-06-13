@@ -70,20 +70,20 @@ class Contacts extends Component {
     // Activate "is-danger" on empty fields
     // useful when user clicks on submit without entering any field
     const formValues = this.state.formValues;
-    const isDangerClassObject = Object.keys(formValues).reduce((acc, currValue) => {
+    const isDangerClassFilteredObject = Object.keys(formValues).reduce((acc, currValue) => {
       if (!formValues[currValue].length) acc[currValue] = 'is-danger';
       return acc;
     }, {})
-    const isHiddenClassObject = _.mapValues(isDangerClassObject, () => '');
+    const isHiddenClassFilteredObject = _.mapValues(isDangerClassFilteredObject, () => '');
     this.setState({
       ...this.state,
       isDangerClass: {
         ...this.state.isDangerClass,
-        ...isDangerClassObject,
+        ...isDangerClassFilteredObject,
       },
       isHiddenClass: {
         ...this.state.isHiddenClass,
-        ...isHiddenClassObject,
+        ...isHiddenClassFilteredObject,
       }
     });
 
@@ -172,7 +172,7 @@ class Contacts extends Component {
             <div className="column is-9 is-offset-3">
               <div className="content">
                 <div className="section-intro">
-                  <h1>Contacts</h1>
+                  <h1>Contacts-</h1>
                   <p>Cras quis nulla commodo, aliquam lectus sed, blandit augue.</p>
                 </div>
                 <div className="contact-form">
