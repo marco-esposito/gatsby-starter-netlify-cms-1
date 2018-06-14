@@ -18,7 +18,7 @@ const scrollDown = (id, text) => (
 
 const Navigation = () => (
   <div className="container is-fullhd">
-    <aside className="menu">
+    <aside className="menu is-hidden-mobile">
       <div className="logo">Logo</div>
       <ul className="menu-list">
         <li>{scrollDown('about-us', 'About Us')}</li>
