@@ -136,13 +136,15 @@ class Contacts extends Component {
         notificationDangerClass: 'is-hidden',
       });
     })
-    .catch(this.setState({
-      ...this.state,
-      buttonLoadingClass: '',
-      buttonDisabled: false,
-      notificationDangerClass: 'is-danger',
-      notificationSuccessClass: 'is-hidden',
-    }));
+    .catch(() => {
+      this.setState({
+        ...this.state,
+        buttonLoadingClass: '',
+        buttonDisabled: false,
+        notificationDangerClass: 'is-danger',
+        notificationSuccessClass: 'is-hidden',
+      });
+    });
   }
 
   handleSubmit = evt => {
