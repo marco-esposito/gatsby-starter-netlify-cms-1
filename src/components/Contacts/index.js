@@ -118,7 +118,19 @@ class Contacts extends Component {
       return Object.keys(data)
           .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
           .join("&");
-    }
+  }
+
+  clearFields = () => {
+    this.setState({
+      ...this.state,
+      formValues: {
+        name: '',
+        company: '',
+        email: '',
+        message: '',
+      }
+    });
+  }
 
   fetchSubmit = () => {
     fetch("/", {
@@ -134,6 +146,7 @@ class Contacts extends Component {
         notificationSuccessClass: 'is-success',
         notificationDangerClass: 'is-hidden',
       });
+      this.clearFields();
     })
     .catch(() => {
       this.setState({
@@ -269,7 +282,7 @@ class Contacts extends Component {
 
 
   //****************//
-  // REACT RENDER
+  // REACT RENDERING
   //****************//
 
   render () {
