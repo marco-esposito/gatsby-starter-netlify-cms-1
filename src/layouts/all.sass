@@ -19,8 +19,8 @@ $column-gap: 1rem
 
 .left-side
   width: 20vw
-  height: 98.5%
-  position: absolute
+  height: 100vw
+  position: fixed
   top: 0
   left: 0
   opacity: 0.3
@@ -54,8 +54,17 @@ $column-gap: 1rem
   justify-content: center
   align-items: center
 
+.section
+  position: relative
+  z-index: 75
+
 .section#video
   padding: 0
+  z-index: 0
+  .video-background
+    position: fixed
+    top: 0
+    left: 0
 
 .section#clients
   .items
@@ -75,6 +84,7 @@ $column-gap: 1rem
 #footer
   padding: 3rem 1.5rem
   position: relative
+  z-index: 75
   .socials img
     width: 2rem
     margin: 0 0.5rem
@@ -87,9 +97,6 @@ $column-gap: 1rem
 @import "~bulma"
 
 // Override
-.section
-  position: relative
-
 .notification
   margin: 3rem 0
 

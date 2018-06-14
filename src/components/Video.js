@@ -2,7 +2,6 @@ import React from 'react'
 
 const Video = () => (
   <section className="section" id="video">
-    <div className="left-side is-hidden-mobile"></div>
     <div className="container is-fullhd">
       <div className="columns">
         <div className="column is-12 is-paddingless">

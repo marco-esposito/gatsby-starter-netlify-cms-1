@@ -52,7 +52,8 @@ export const BlackdeePageTemplate = ({
 }) => (
   <Fragment>
     <Navigation />
-    <div style={ { height: `700px`, zIndex: `-50` } }></div>
+    <div className="left-side is-hidden-mobile"></div>
+    <div style={ { height: `58vw`, zIndex: `-50` } }></div>
     <Video />
     <section className="section odd" id="about-us">
       <div className="container is-fullhd">
