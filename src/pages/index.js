@@ -51,10 +51,17 @@ export const BlackdeePageTemplate = ({
   clients,
 }) => (
   <Fragment>
+
     <Navigation />
+
+    {/* left area containing the menu */}
     <div className="left-side is-hidden-mobile"></div>
-    <div style={ { height: `58vw`, zIndex: `-50` } }></div>
+
+    {/* Section useful to create space for the video div */}
+    <section style={ { height: `58vw`, zIndex: `-50` } }></section>
+
     <Video />
+
     <section className="section odd" id="about-us">
       <div className="container is-fullhd">
         <div className="columns">
@@ -69,6 +76,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
+
     <section className="section even" id="services">
       <div className="container is-fullhd">
         <div className="columns">
@@ -84,6 +92,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
+
     <section className="section odd" id="clients">
       <div className="container is-fullhd">
         <div className="columns">
@@ -100,8 +109,11 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
+
     <Contacts />
+
     <Footer />
+
   </Fragment>
 )
 
