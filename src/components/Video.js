@@ -1,4 +1,5 @@
 import React from 'react'
+import video from '../../static/video/blackdee-intro.mp4'
 
 const Video = () => (
   <section className="section" id="video">
@@ -12,7 +13,7 @@ const Video = () => (
               <div className="video-background-color"></div>
               <div className="video-background">
                 <video preload="auto" autoPlay loop
-                  src="https://www.frogdesign.com/wp-content/uploads/2016/11/Front_Page_FINALCUT_1000bit.mp4"
+                  src={video}
                 >
                 </video>
               </div>
