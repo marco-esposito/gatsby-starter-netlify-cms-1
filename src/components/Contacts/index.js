@@ -121,6 +121,30 @@ class Contacts extends Component {
       return true;
   }
 
+  fetchSubmit = () => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state.formValues })
+    })
+    .then(() => {
+      this.setState({
+        ...this.state,
+        buttonLoadingClass: '',
+        buttonDisabled: false,
+        notificationSuccessClass: 'is-success',
+        notificationDangerClass: 'is-hidden',
+      });
+    })
+    .catch(this.setState({
+      ...this.state,
+      buttonLoadingClass: '',
+      buttonDisabled: false,
+      notificationDangerClass: 'is-danger',
+      notificationSuccessClass: 'is-hidden',
+    }));
+  }
+
   handleSubmit = evt => {
     // Submit with a fetch
     if (this.validateAllEmptyFields() && this.validateEmail()) {
@@ -129,27 +153,7 @@ class Contacts extends Component {
         buttonLoadingClass: 'is-loading',
         buttonDisabled: true,
       });
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state.formValues })
-      })
-      .then(() => {
-        this.setState({
-          ...this.state,
-          buttonLoadingClass: '',
-          buttonDisabled: false,
-          notificationSuccessClass: 'is-success',
-          notificationDangerClass: 'is-hidden',
-        });
-      })
-      .catch(this.setState({
-        ...this.state,
-        buttonLoadingClass: '',
-        buttonDisabled: false,
-        notificationDangerClass: 'is-danger',
-        notificationSuccessClass: 'is-hidden',
-      }));
+      this.fetchSubmit();
     }
     evt.preventDefault();
   }
