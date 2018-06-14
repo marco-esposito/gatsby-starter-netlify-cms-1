@@ -1,10 +1,19 @@
 import React, { Fragment } from 'react';
 
-const TextArea = ( { className, name, onChangeField, onBlurField, isHiddenClass, isDangerClass } ) => (
+const TextArea = ( {
+  className,
+  name,
+  value,
+  onChangeField,
+  onBlurField,
+  isHiddenClass,
+  isDangerClass
+} ) => (
   <Fragment>
     <textarea
       className={className}
       name={name}
+      value={value}
       placeholder="Your text here"
       rows="10"
       onChange={onChangeField}

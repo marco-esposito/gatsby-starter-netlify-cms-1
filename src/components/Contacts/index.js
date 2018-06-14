@@ -4,12 +4,6 @@ import _ from 'lodash'
 import Input from './Input'
 import TextArea from './TextArea'
 
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-  }
-
 class Contacts extends Component {
 
   state = {
@@ -37,15 +31,9 @@ class Contacts extends Component {
     },
   }
 
-  handleChangeField = (evt) => {
-    this.setState({
-      ...this.state,
-      formValues: {
-        ...this.state.formValues,
-        [evt.target.name]: evt.target.value,
-      }
-    });
-  }
+  //****************//
+  // VALIDATION
+  //****************//
 
   // Check empty fields when user blurs
   validateSingleEmptyField = evt => {
@@ -121,11 +109,22 @@ class Contacts extends Component {
       return true;
   }
 
+
+  //****************//
+  // SUBMISSION
+  //****************//
+
+  encode = (data) => {
+      return Object.keys(data)
+          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+    }
+
   fetchSubmit = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state.formValues })
+      body: this.encode({ "form-name": "contact", ...this.state.formValues })
     })
     .then(() => {
       this.setState({
@@ -169,6 +168,21 @@ class Contacts extends Component {
     evt.preventDefault();
   }
 
+
+  //****************//
+  // FORM HANDLING
+  //****************//
+
+  handleChangeField = (evt) => {
+    this.setState({
+      ...this.state,
+      formValues: {
+        ...this.state.formValues,
+        [evt.target.name]: evt.target.value,
+      }
+    });
+  }
+
   renderField = (tag, label, name, type) => (
     <div className="field">
       <label className="label">{label}</label>
@@ -183,6 +197,7 @@ class Contacts extends Component {
               isDangerClass={this.state.isDangerClass}
               name={name}
               type={type}
+              value={this.state.formValues[name]}
               onChangeField={this.handleChangeField}
               onBlurField={this.validateSingleEmptyField}
             />
@@ -194,6 +209,7 @@ class Contacts extends Component {
               isHiddenClass={this.state.isHiddenClass}
               isDangerClass={this.state.isDangerClass}
               name={name}
+              value={this.state.formValues[name]}
               onChangeField={this.handleChangeField}
               onBlurField={this.validateSingleEmptyField}
             />
@@ -239,17 +255,22 @@ class Contacts extends Component {
           </button>
         </div>
       </div>
-      <div class={`notification ${this.state.notificationSuccessClass}`}>
-        <button class="delete" onClick={this.handleDeleteNotification}></button>
+      <div className={`notification ${this.state.notificationSuccessClass}`}>
+        <button className="delete" onClick={this.handleDeleteNotification}></button>
           Your message has been successfully sent!
       </div>
-      <div class={`notification ${this.state.notificationDangerClass}`}>
-        <button class="delete" onClick={this.handleDeleteNotification}></button>
+      <div className={`notification ${this.state.notificationDangerClass}`}>
+        <button className="delete" onClick={this.handleDeleteNotification}></button>
           Something went wrong. Please try again.
       </div>
     </form>
   </Fragment>
   )
+
+
+  //****************//
+  // REACT RENDER
+  //****************//
 
   render () {
     return (
