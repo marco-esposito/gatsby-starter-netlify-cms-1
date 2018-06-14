@@ -11,7 +11,7 @@ about_us:
     orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et
     vulputate euismod, nunc leo tempor lacus, ac rhoncus neque eros nec lacus.
     Cras lobortis molestie faucibus.
-  heading: Who we are
+  heading: Who we are-
 services:
   description: >-
     Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper
