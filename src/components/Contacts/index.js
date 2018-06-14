@@ -14,15 +14,15 @@ class Contacts extends Component {
       message: '',
     },
     isHiddenClass: {
-      name: 'is-hidden',
-      company: 'is-hidden',
-      email: 'is-hidden',
-      message: 'is-hidden',
+      name: 'is-invisible',
+      company: 'is-invisible',
+      email: 'is-invisible',
+      message: 'is-invisible',
     },
     buttonLoadingClass: '',
     buttonDisabled: false,
-    notificationSuccessClass: 'is-hidden',
-    notificationDangerClass: 'is-hidden',
+    notificationSuccessClass: 'is-invisible',
+    notificationDangerClass: 'is-invisible',
     formValues: {
       name: '',
       company: '',
@@ -58,7 +58,7 @@ class Contacts extends Component {
         },
         isHiddenClass: {
           ...this.state.isHiddenClass,
-          [evt.target.name]: 'is-hidden',
+          [evt.target.name]: 'is-invisible',
         },
       });
     }
@@ -144,7 +144,7 @@ class Contacts extends Component {
         buttonLoadingClass: '',
         buttonDisabled: false,
         notificationSuccessClass: 'is-success',
-        notificationDangerClass: 'is-hidden',
+        notificationDangerClass: 'is-invisible',
       });
       this.clearFields();
     })
@@ -154,7 +154,7 @@ class Contacts extends Component {
         buttonLoadingClass: '',
         buttonDisabled: false,
         notificationDangerClass: 'is-danger',
-        notificationSuccessClass: 'is-hidden',
+        notificationSuccessClass: 'is-invisible',
       });
     });
   }
@@ -175,8 +175,8 @@ class Contacts extends Component {
   handleDeleteNotification = (evt) => {
     this.setState({
       ...this.state,
-      notificationSuccessClass: 'is-hidden',
-      notificationDangerClass: 'is-hidden',
+      notificationSuccessClass: 'is-invisible',
+      notificationDangerClass: 'is-invisible',
     });
     evt.preventDefault();
   }

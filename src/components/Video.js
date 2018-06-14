@@ -5,7 +5,7 @@ const Video = () => (
     <div className="left-side is-hidden-mobile"></div>
     <div className="container is-fullhd">
       <div className="columns">
-        <div className="column is-12">
+        <div className="column is-12 is-paddingless">
           <div className="content">
             <div
               className="full-width-image-container margin-top-0"
