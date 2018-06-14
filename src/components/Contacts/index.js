@@ -268,13 +268,15 @@ class Contacts extends Component {
           </button>
         </div>
       </div>
-      <div className={`notification ${this.state.notificationSuccessClass}`}>
-        <button className="delete" onClick={this.handleDeleteNotification}></button>
+      <div className="is-inline-flex">
+        <div className={`notification ${this.state.notificationSuccessClass}`}>
+          <button className="delete" onClick={this.handleDeleteNotification}></button>
           Your message has been successfully sent!
-      </div>
-      <div className={`notification ${this.state.notificationDangerClass}`}>
-        <button className="delete" onClick={this.handleDeleteNotification}></button>
+        </div>
+        <div className={`notification ${this.state.notificationDangerClass}`}>
+          <button className="delete" onClick={this.handleDeleteNotification}></button>
           Something went wrong. Please try again.
+        </div>
       </div>
     </form>
   </Fragment>
@@ -287,7 +289,7 @@ class Contacts extends Component {
 
   render () {
     return (
-      <section className="section" id="contacts">
+      <section className="section even" id="contacts">
         <div className="container is-fullhd">
           <div className="columns">
             <div className="column is-9 is-offset-3">

@@ -52,6 +52,7 @@ export const BlackdeePageTemplate = ({
 }) => (
   <Fragment>
     <Navigation />
+    <div style={ { height: `700px`, zIndex: `-50` } }></div>
     <Video />
     <section className="section odd" id="about-us">
       <div className="container is-fullhd">
@@ -67,7 +68,7 @@ export const BlackdeePageTemplate = ({
         </div>
       </div>
     </section>
-    <section className="section" id="services">
+    <section className="section even" id="services">
       <div className="container is-fullhd">
         <div className="columns">
           <div className="column is-9 is-offset-3">
